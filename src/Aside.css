@@ -1,0 +1,35 @@
+.aside {
+  width: 100%;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.aside-content h2 {
+  margin-top: 0;
+  font-size: 1.75rem;
+  color: #ffd700;
+  border-bottom: 1px solid #ffd700;
+  padding-bottom: 10px;
+}
+
+.aside-content p {
+  font-size: 0.95rem;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.aside-menu {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0 0;
+}
+
+.aside-menu li {
+  margin-bottom: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ffd700;
+  color: #ccc;
+  font-size: 0.9rem;
+}
