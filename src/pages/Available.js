@@ -1,49 +1,80 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import SpellCard from '../components/SpellCard';
+import supabase from '../utils/supabaseClient';
 
 function Available() {
+  const [spells, setSpells] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchSpells = async () => {
+      setLoading(true);
+      setError(null);
+
+      const { data, error: fetchError } = await supabase
+        .from('spells')
+        .select('*');
+
+      if (fetchError) {
+        setError(fetchError.message);
+      } else {
+        setSpells(data || []);
+      }
+
+      setLoading(false);
+    };
+
+    fetchSpells();
+  }, []);
+
+  if (loading) {
+    return (
+      <main className="main">
+        <section id="available-spells" className="spells-section">
+          <h2>Available Spells</h2>
+          <p>Loading spells...</p>
+        </section>
+      </main>
+    );
+  }
+
+  if (error) {
+    return (
+      <main className="main">
+        <section id="available-spells" className="spells-section">
+          <h2>Available Spells</h2>
+          <p style={{ color: 'red' }}>Error: {error}</p>
+        </section>
+      </main>
+    );
+  }
+
   return (
     <main className="main">
       <section id="available-spells" className="spells-section">
         <h2>Available Spells</h2>
         <p>These spells are available for you to learn and prepare.</p>
         <div className="spell-cards-wrapper">
-          <SpellCard 
-            book="Книга Чарів / Захист /"
-            title="Магічний щит"
-            description="Створити магічний щит для захисту."
-            castingTime="Реакція"
-            duration="1 раунд"
-            target="Себе"
-            savingThrow="Ні"
-            area="ОСОБА"
-            range="Особа"
-            cost="1× ЧАРУНКИ"
-          />
-          <SpellCard 
-            book="Книга Чарів / Лікування /"
-            title="Вилікування"
-            description="Вилікувати рани істоти."
-            castingTime="Основна дія"
-            duration="Миттєво"
-            target="Істота"
-            savingThrow="Ні"
-            area="ОДНА ЦІЛЬ"
-            range="Дотик"
-            cost="2× ЧАРУНКИ"
-          />
-          <SpellCard 
-            book="Книга Чарів / Розпізнання /"
-            title="Значення магії"
-            description="Визначити магію, що присутня в місцевості."
-            castingTime="Основна дія"
-            duration="10 хв"
-            target="Точка на відстані"
-            savingThrow="Ні"
-            area="СФЕРА 30 ФУТІВ"
-            range="120 ФУТІВ"
-            cost="1× ЧАРУНКИ"
-          />
+          {spells.length === 0 ? (
+            <p>No spells found.</p>
+          ) : (
+            spells.map((spell) => (
+              <SpellCard
+                key={spell.id}
+                book={`Книга Чарів / ${spell.school || 'Unknown'} /`}
+                title={spell.name}
+                description={spell.description}
+                castingTime="—"
+                duration="—"
+                target="—"
+                savingThrow="—"
+                area="—"
+                range="—"
+                cost="—"
+              />
+            ))
+          )}
         </div>
       </section>
     </main>

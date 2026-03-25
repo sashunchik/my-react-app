@@ -1,5 +1,5 @@
 import React from 'react';
-import './SpellCard.css';
+import '../styles/SpellCard.css';
 
 function SpellCard({
   book = 'Книга Чарів / З\'явлення /',
