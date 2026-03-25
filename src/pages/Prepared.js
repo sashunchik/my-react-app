@@ -16,7 +16,7 @@ function Prepared() {
       const { data: userSpells, error: userSpellsError } = await supabase
         .from('user_spells')
         .select('spell_id')
-        .eq('is_prepares', true);
+        .eq('is_prepared', true);
 
       if (userSpellsError) {
         setError(userSpellsError.message);
