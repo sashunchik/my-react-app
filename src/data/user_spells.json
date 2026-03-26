@@ -1,0 +1,5 @@
+[
+  {"spell_id": 1, "is_prepared": true},
+  {"spell_id": 4, "is_prepared": true},
+  {"spell_id": 2, "is_prepared": false}
+]

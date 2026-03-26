@@ -65,13 +65,13 @@ function Available() {
                 book={`Книга Чарів / ${spell.school || 'Unknown'} /`}
                 title={spell.name}
                 description={spell.description}
-                castingTime="—"
-                duration="—"
-                target="—"
-                savingThrow="—"
-                area="—"
-                range="—"
-                cost="—"
+                castingTime={spell.castingTime || '—'}
+                duration={spell.duration || '—'}
+                target={spell.target || '—'}
+                savingThrow={spell.savingThrow || '—'}
+                area={spell.area || '—'}
+                range={spell.range || '—'}
+                cost={spell.cost || '—'}
               />
             ))
           )}

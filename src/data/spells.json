@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Magic Missile",
+    "description": "A missile of magical energy darts forth and strikes at a creature.",
+    "school": "Evocation",
+    "castingTime": "1 action",
+    "duration": "Instantaneous",
+    "target": "One creature",
+    "savingThrow": "None",
+    "area": "N/A",
+    "range": "120 feet"
+  },
+  {
+    "id": 2,
+    "name": "Shield",
+    "description": "An invisible barrier of magical force appears and protects you.",
+    "school": "Abjuration",
+    "castingTime": "1 reaction",
+    "duration": "1 round",
+    "target": "Self",
+    "savingThrow": "None",
+    "area": "Self",
+    "range": "Self"
+  },
+  {
+    "id": 3,
+    "name": "Mage Armor",
+    "description": "A protective magical force surrounds the target.",
+    "school": "Abjuration",
+    "castingTime": "1 action",
+    "duration": "8 hours",
+    "target": "1 willing creature",
+    "savingThrow": "None",
+    "area": "Self or target",
+    "range": "Touch"
+  },
+  {
+    "id": 4,
+    "name": "Fireball",
+    "description": "A bright streak flashes from your pointing finger to a point you choose, then blossoms with a low roar into an explosion.",
+    "school": "Evocation",
+    "castingTime": "1 action",
+    "duration": "Instantaneous",
+    "target": "Point within range",
+    "savingThrow": "Dexterity half",
+    "area": "20-foot radius sphere",
+    "range": "150 feet"
+  },
+  {
+    "id": 5,
+    "name": "Invisibility",
+    "description": "A creature you touch becomes invisible until the spell ends.",
+    "school": "Illusion",
+    "castingTime": "1 action",
+    "duration": "Up to 1 hour",
+    "target": "1 creature",
+    "savingThrow": "None",
+    "area": "Single target",
+    "range": "Touch"
+  }
+]
